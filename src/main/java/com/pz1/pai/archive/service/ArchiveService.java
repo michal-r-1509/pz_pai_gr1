@@ -8,6 +8,7 @@ import com.pz1.pai.orders.domain.Order;
 import com.pz1.pai.orders.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
@@ -43,5 +44,10 @@ public class ArchiveService {
                 .sorted(Comparator.comparing(ArchivedBatch::getTime))
                 .sorted(Comparator.comparing(ArchivedBatch::getDate))
                 .collect(Collectors.toList());
+    }
+
+    public List<ArchivedBatch> readAllArchivedBatches(final Sort sort) {
+        log.info("reading all archived batches");
+        return archiveRepository.findAll(sort);
     }
 }

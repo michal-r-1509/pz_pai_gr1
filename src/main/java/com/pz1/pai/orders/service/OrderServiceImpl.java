@@ -6,6 +6,8 @@ import com.pz1.pai.batches.dto.BatchResponseDTO;
 import com.pz1.pai.batches.repository.BatchRepository;
 import com.pz1.pai.batches.service.BatchMapper;
 import com.pz1.pai.batches.service.BatchValidator;
+import com.pz1.pai.clients.domain.Client;
+import com.pz1.pai.clients.repository.ClientRepository;
 import com.pz1.pai.exceptions.DataNotFoundException;
 import com.pz1.pai.orders.domain.Order;
 import com.pz1.pai.orders.dto.OrderRequestDTO;
@@ -13,6 +15,7 @@ import com.pz1.pai.orders.dto.OrderResponseDTO;
 import com.pz1.pai.orders.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,13 +31,16 @@ public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
     private final BatchRepository batchRepository;
+    private final ClientRepository clientRepository;
     private final OrderMapper orderMapper;
     private final BatchMapper batchMapper;
     private final BatchValidator batchValidator;
 
     @Override
     public OrderResponseDTO saveOrder(final OrderRequestDTO toSave) {
-        Order order = orderMapper.newOrderDataValidating(toSave);
+        Client client = clientRepository.findById(toSave.getClientId())
+                .orElseThrow(() -> new DataNotFoundException("client", toSave.getClientId()));
+        Order order = orderMapper.newOrderDataValidating(toSave, client);
         Order saved = orderRepository.save(order);
         saved.setOrderNo(generateOrderNo(saved.getId()));
         Order savedWithNo = orderRepository.save(saved);
@@ -81,7 +87,9 @@ public class OrderServiceImpl implements OrderService {
     public OrderResponseDTO updateOrder(final Long id, final OrderRequestDTO toSave) {
         Order existOrder = orderRepository.findById(id)
                 .orElseThrow(() -> new DataNotFoundException("order", id));
-        orderMapper.existOrderDataValidating(toSave, existOrder);
+        Client client = clientRepository.findById(toSave.getClientId())
+                .orElseThrow(() -> new DataNotFoundException("client", toSave.getClientId()));
+        orderMapper.existOrderDataValidating(toSave, client, existOrder);
         orderRepository.save(existOrder);
         log.info("updated order with id: {}", existOrder.getId());
         return orderMapper.toResponse(existOrder);
@@ -112,9 +120,17 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<OrderResponseDTO> getAllOrdersByState(final boolean status) {
+    public List<OrderResponseDTO> getAllOrders(final Sort sort) {
+        log.info("reading all orders with sorting");
+        return orderRepository.findAll(sort).stream()
+                .map(orderMapper::toResponse)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<OrderResponseDTO> getAllOrdersByState(final boolean status, final Sort sort) {
         log.info("reading all orders with sorting by status");
-        return getAllOrders().stream()
+        return getAllOrders(sort).stream()
                 .filter(order -> order.isDone() == status)
                 .collect(Collectors.toList());
     }

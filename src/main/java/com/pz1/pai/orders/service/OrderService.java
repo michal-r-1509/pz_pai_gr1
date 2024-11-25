@@ -15,6 +15,7 @@ public interface OrderService {
     void changeOrderStatus(boolean status, final Long id);
     List<OrderResponseDTO> getAllOrders();
     OrderResponseDTO getOrder(final Long id);
-    List<OrderResponseDTO> getAllOrdersByState(final boolean status);
+    List<OrderResponseDTO> getAllOrders(final Sort sort);
+    List<OrderResponseDTO> getAllOrdersByState(final boolean status, final Sort sort);
     void deleteOrder(final Long id);
 }

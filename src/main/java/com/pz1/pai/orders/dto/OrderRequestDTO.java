@@ -21,4 +21,5 @@ public class OrderRequestDTO {
     private String siteAddress;
     private String description;
     private boolean pump;
+    private long clientId;
 }

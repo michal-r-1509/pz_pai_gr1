@@ -8,6 +8,7 @@ import com.pz1.pai.exceptions.DataNotFoundException;
 import com.pz1.pai.orders.service.OrderStatus;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -64,6 +65,13 @@ public class BatchServiceImpl implements BatchService {
     public List<BatchResponseDTO> readAllBatches() {
         List<Batch> batches = batchRepository.findAll();
         log.info("reading all batches");
+        return batchMapper.toBatchResponse(batches);
+    }
+
+    @Override
+    public List<BatchResponseDTO> readAllBatches(final Sort sort) {
+        List<Batch> batches = batchRepository.findAll(sort);
+        log.info("reading all batches with sorting");
         return batchMapper.toBatchResponse(batches);
     }
 

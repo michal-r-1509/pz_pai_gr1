@@ -4,6 +4,7 @@ import com.pz1.pai.batches.domain.Batch;
 import com.pz1.pai.batches.dto.BatchDnPrintDTO;
 import com.pz1.pai.batches.dto.BatchRequestDTO;
 import com.pz1.pai.batches.dto.BatchResponseDTO;
+import com.pz1.pai.clients.domain.Client;
 import com.pz1.pai.exceptions.DataNotFoundException;
 import com.pz1.pai.orders.domain.Order;
 import com.pz1.pai.schedules.domain.Schedule;
@@ -62,6 +63,7 @@ public class BatchMapper {
                             .siteAddress(batch.getOrder().getSiteAddress())
                             .date(batch.getOrder().getDate())
                             .orderId(batch.getOrder().getId())
+                            .clientName(batch.getOrder().getClient().getName())
                             .vehicleId(vehicle.getId())
                             .vehicleName(vehicle.getName())
                             .vehicleRegNo(vehicle.getRegNo())
@@ -72,6 +74,7 @@ public class BatchMapper {
     }
 
     public BatchDnPrintDTO toBatchDnPrintResponse(final Batch batch) {
+        Client client = batch.getOrder().getClient();
         return BatchDnPrintDTO.builder()
                 .id(batch.getId())
                 .dnNo(dnParser.toString(batch.getId()))
@@ -80,6 +83,8 @@ public class BatchMapper {
                 .siteAddress(batch.getOrder().getSiteAddress())
                 .date(batch.getOrder().getDate())
                 .concreteClass(batch.getOrder().getConcreteClass())
+                .clientName(client.getName())
+                .taxPayIdentNo(client.getTaxpayerIdentNo())
                 .vehicleName(batch.getSchedule().getVehicle().getName())
                 .vehicleRegNo(batch.getSchedule().getVehicle().getRegNo())
                 .vehicleType(batch.getSchedule().getVehicle().getType())

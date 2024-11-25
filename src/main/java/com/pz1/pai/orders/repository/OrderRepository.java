@@ -8,6 +8,7 @@ import java.util.Optional;
 
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
+    boolean existsOrderByClient_Id(Long id);
 
     Optional<Order> findTopByOrderByOrderNoDesc();
 }

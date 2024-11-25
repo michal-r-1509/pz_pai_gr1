@@ -49,9 +49,14 @@ class OrderController {
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
-    @GetMapping
+    @GetMapping(params = {"!sort"})
     ResponseEntity<List<OrderResponseDTO>> readOrders() {
         return ResponseEntity.ok(orderService.getAllOrders());
+    }
+
+    @GetMapping
+    ResponseEntity<List<OrderResponseDTO>> readOrders(Sort sort) {
+        return ResponseEntity.status(HttpStatus.OK).body(orderService.getAllOrders(sort));
     }
 
     @GetMapping("/{id}")
@@ -61,8 +66,8 @@ class OrderController {
 
     @GetMapping("/search")
     ResponseEntity<List<OrderResponseDTO>> readOrders(
-            @RequestParam(required = false, defaultValue = "false") boolean status) {
-        return ResponseEntity.status(HttpStatus.OK).body(orderService.getAllOrdersByState(status));
+            @RequestParam(required = false, defaultValue = "false") boolean status, Sort sort) {
+        return ResponseEntity.status(HttpStatus.OK).body(orderService.getAllOrdersByState(status, sort));
     }
 
     @DeleteMapping("/{id}")

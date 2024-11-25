@@ -23,6 +23,11 @@ public class ArchivedBatch extends IdEntity {
     private LocalDate date;
     private LocalTime time;
     private String siteAddress;
+    private String clientName;
+    private String clientAddress;
+    private String clientPostCode;
+    private String clientCity;
+    private String clientTxpIN;
     private String vehicleType;
     private String vehicleName;
     private String vehicleRegNo;

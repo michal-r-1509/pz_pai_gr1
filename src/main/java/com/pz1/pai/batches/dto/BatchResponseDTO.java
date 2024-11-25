@@ -20,6 +20,8 @@ public class BatchResponseDTO {
     private LocalDate date;
     private Long orderId;
 
+    private String clientName;
+
     private Long vehicleId;
     private String vehicleName;
     private String vehicleRegNo;

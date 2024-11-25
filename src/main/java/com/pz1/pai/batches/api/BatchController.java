@@ -6,6 +6,7 @@ import com.pz1.pai.batches.service.BatchService;
 import com.pz1.pai.orders.service.OrderStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -48,9 +49,14 @@ public class BatchController {
         }
     }
 
-    @GetMapping
+    @GetMapping(params = {"!sort"})
     ResponseEntity <List<BatchResponseDTO>> readAllBatches(){
         return ResponseEntity.status(HttpStatus.OK).body(batchService.readAllBatches());
+    }
+
+    @GetMapping
+    ResponseEntity <List<BatchResponseDTO>> readAllBatches(Sort sort){
+        return ResponseEntity.status(HttpStatus.OK).body(batchService.readAllBatches(sort));
     }
 
     @GetMapping("/search/{orderId}")

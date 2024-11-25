@@ -5,7 +5,9 @@ import com.pz1.pai.vehicles.dto.VehicleRequestDTO;
 import com.pz1.pai.vehicles.service.VehicleService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -36,9 +38,14 @@ class VehicleController {
         return ResponseEntity.status(HttpStatus.OK).body(vehicleService.readVehicle(id));
     }
 
-    @GetMapping
+    @GetMapping(params = {"!sort"})
     ResponseEntity<List<Vehicle>> readAllVehicles() {
         return ResponseEntity.status(HttpStatus.OK).body(vehicleService.readAllVehicles());
+    }
+
+    @GetMapping
+    ResponseEntity<List<Vehicle>> readAllVehicles(Sort sort) {
+        return ResponseEntity.status(HttpStatus.OK).body(vehicleService.readAllVehicles(sort));
     }
 
     @DeleteMapping("/{id}")

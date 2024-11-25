@@ -24,6 +24,7 @@ public class BatchDnPrintDTO {
     private LocalDate date;
     private String concreteClass;
 
+    private String clientName;
     private String taxPayIdentNo;
 
     private String vehicleName;

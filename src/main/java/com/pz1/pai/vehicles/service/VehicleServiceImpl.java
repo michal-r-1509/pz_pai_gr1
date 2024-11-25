@@ -9,6 +9,7 @@ import com.pz1.pai.vehicles.dto.VehicleRequestDTO;
 import com.pz1.pai.vehicles.repository.VehicleRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -57,6 +58,12 @@ public class VehicleServiceImpl implements VehicleService{
     public List<Vehicle> readAllVehicles() {
         log.info("reading all vehicles");
         return vehicleRepository.findAll();
+    }
+
+    @Override
+    public List<Vehicle> readAllVehicles(final Sort sort) {
+        log.info("reading all vehicles with sorting");
+        return vehicleRepository.findAll(sort);
     }
 
     @Override
