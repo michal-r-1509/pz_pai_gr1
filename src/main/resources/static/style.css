@@ -1,0 +1,565 @@
+/* Ustawienie czcionki Montserrat jako domyślnej czcionki dla całej strony */
+html {
+    font-family: "Michroma", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+/* Stylizacja elementu body */
+body {
+    background-color:#262626;
+    color: lightgray; /* Kolor tekstu */
+    margin: 0; /* Usunięcie marginesu */
+    font-size: 10px; /* Rozmiar czcionki */
+    font-variant-caps: all-petite-caps; /* Małe litery z dużymi początkowymi */
+    justify-content: center; /* Wyśrodkowanie zawartości */
+    height:1vh;
+}
+
+
+
+
+/* Stylowanie przycisków na stronie */
+button {
+    font-family: "Michroma", sans-serif;/* Czcionka przycisków */
+    position: relative; /* Pozycjonowanie względne */
+    width: 140px; /* Szerokość przycisku */
+    padding: 10px; /* Wewnętrzne odstępy */
+    margin: 5px; /* Zewnętrzne odstępy */
+    text-align: center; /* Wyrównanie tekstu do środka */
+    font-size: 16px; /* Rozmiar czcionki */
+    font-weight: bold; /* Pogrubienie tekstu */
+    color: white;
+    background-color: rgba(38, 38, 38, 0.5); /* Półprzezroczyste szare tło */
+    backdrop-filter: blur(10px); /* Dodaje rozmycie o wartości 5px */
+    border: rgba(249, 197, 53, 0.8) solid 0.5px; /* Obramowanie w kolorze jasnoszarym */
+    border-radius: 10px; /* Zaokrąglenie rogów */
+    font-variant-caps: all-petite-caps; /* Małe litery z dużymi początkowymi */
+    box-sizing: border-box; /* Uwzględnienie paddingu i borderu w rozmiarze elementu */
+    transition: all .1s ease-in-out; /* Płynna animacja zmian stylu */
+    cursor: pointer; /* Ustawienie kursora jako "ręka" */
+}
+
+/* Styl przycisku po najechaniu */
+button:hover {
+    background-color: rgba(249, 197, 53, 0.8);
+    color: #262626;
+    font-weight: bold;
+}
+
+/* Styl przycisków w tabelach */
+td button {
+    width: 60px; /* Szerokość przycisku */
+    padding: 2px; /* Wewnętrzne odstępy */
+    margin: 3px; /* Zewnętrzne odstępy */
+    font-size: 10px; /* Mały rozmiar czcionki */
+    border: lightgray solid 1px; /* Obramowanie przycisku */
+    border-radius: 8px; /* Zaokrąglenie rogów */
+}
+
+/* Styl przycisku w tabeli, gdy jest wyłączony */
+td button:disabled {
+    color: darkgray; /* Szary tekst */
+    font-weight: bold; /* Pogrubienie tekstu */
+}
+
+/* Styl małych przycisków */
+.small_buttons {
+    width: 40px; /* Szerokość przycisku */
+    height: 30px; /* Wysokość przycisku */
+    padding: 2px; /* Wewnętrzne odstępy */
+    margin: 3px; /* Zewnętrzne odstępy */
+    font-size: 18px; /* Większy rozmiar czcionki */
+    border-radius: 8px; /* Zaokrąglenie rogów */
+
+}
+
+
+
+/* Stylowanie nawigacji */
+nav {
+    display: flex; /* Flexbox dla nawigacji */
+    justify-content: center; /* Wyśrodkowanie elementów */
+    padding: 5px; /* Padding wokół */
+}
+
+nav p {
+    margin-top: 30px;
+    margin-bottom: 30px; /* Usunięcie marginesu poniżej */
+}
+/* Stylowanie linków */
+a {
+    text-decoration: none; /* Usunięcie podkreślenia */
+    cursor: default; /* Ustawienie kursora na domyślny */
+}
+
+/* Styl sekcji głównej */
+main {
+    background-image: url('beton.png'); /* Ścieżka do obrazu (obrazek w tej samej lokalizacji co pliki) */
+    background-size: cover; /* Dopasowanie obrazu */
+    background-position: center center; /* Wyśrodkowanie obrazu */
+    background-repeat: no-repeat; /* Bez powtarzania obrazu */
+}
+
+
+
+/* Styl głównej sekcji (zawierającej treści, tabele) */
+section {
+    display: flex; /* Użycie Flexbox do wyśrodkowania */
+    justify-content: center; /* Wyśrodkowanie w poziomie */
+    align-items: center; /* Wyśrodkowanie w pionie */
+    padding: 30px; /* Padding wokół */
+    text-align: center; /* Wyśrodkowanie tekstu w artykule */
+    }
+
+/* Styl artykułów w głównym kontenerze */
+article {
+    padding: 10px; /* Padding wokół */
+    height: 470px; /* Ustalona wysokość */
+    border: 0.5px solid #262626; /* Obramowanie */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+    background-color: rgba(38, 38, 38, 0.5); /* Szare półprzezroczyste tło */
+    backdrop-filter: blur(10px); /* Rozmycie tła */
+    width: 100%;
+    vertical-align: bottom; /* Wyrównanie do dołu */
+
+}
+/* Styl dla kontenera tabel */
+.tables {
+    display: flex; /* Flexbox */
+    align-items: center; /* Wyrównanie w pionie */
+    width: 100%; /* Szerokość 100% */
+    justify-content: center; /* Wyśrodkowanie zawartości */
+    font-family: "Michroma", sans-serif;
+}
+
+/* Stylowanie tabel */
+table {
+    display: block; /* Ustawienie tabeli na blok */
+    margin-left: auto; /* Wyśrodkowanie */
+    margin-right: auto; /* Wyśrodkowanie */
+    width: auto; /* Szerokość auto */
+    border-collapse: collapse; /* Łączenie krawędzi */
+    overflow-y: auto; /* Pionowe przewijanie */
+    max-height: 400px; /* Maksymalna wysokość tabeli */
+    border-collapse: collapse; /* Usunięcie podwójnych krawędzi */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Cień wokół tabeli */
+    border-radius: 5px; /* Zaokrąglenie rogów tabeli */
+}
+
+
+
+/* Styl dla mniejszych tabel */
+.smaller_tables {
+    display: grid; /* Użycie siatki */
+    padding: 10px; /* Padding wokół */
+    height: 150px; /* Wysokość */
+    max-height: 150px; /* Maksymalna wysokość */
+    border: 2px solid lightgray; /* Obramowanie */
+    border-radius: 15px; /* Zaokrąglenie rogów */
+    background-color: rgba(131, 137, 150, 0.5); /* Półprzezroczyste szare tło */
+    overflow-y: auto; /* Pionowe przewijanie */
+    justify-content: center; /* Wyśrodkowanie zawartości */
+}
+
+/* Styl dla tabeli części */
+.part_table {
+    max-height: 140px; /* Maksymalna wysokość */
+    inline-size: -moz-available; /* Rozmiar na dostępnej szerokości */
+    width: 100%; /* Szerokość na 100% */
+}
+
+
+
+/* Stylowanie nagłówków tabeli */
+th {
+    background-color: rgb(249, 197, 53,0.8); /* Ciemniejsze tło nagłówków */
+    color: #262626; /* Biały tekst */
+    padding: 16px 20px; /* Większy padding dla lepszego komfortu */
+    font-size: 14px; /* Większy rozmiar czcionki */
+    text-align: left; /* Wyrównanie tekstu w lewo */
+    border-bottom: 5px solid rgba(204, 152, 10, 0.8); /* Cień pod nagłówkami */
+    font-weight: bold; /* Pogrubienie tekstu */
+    letter-spacing: 0.5px; /* Przestrzeń między literami */
+    text-transform: uppercase; /* Duże litery */
+}
+
+/* Stylowanie wierszy tabeli */
+tr {
+    background-color: rgba(201, 204, 207, 0.1);
+}
+
+/* Stylowanie wierszy tabeli po najechaniu */
+tr:hover {
+    background-color: rgba(115, 116, 117, 0.1);
+
+}
+
+/* Styl komórek tabeli */
+td {
+    text-align: center; /* Wyrównanie tekstu do środka */
+    padding: 12px 15px; /* Większy padding wewnątrz komórek */
+    font-size: 13px; /* Większy rozmiar czcionki */
+    color: #262626; /* Kolor tekstu w komórkach */
+    border-bottom: 1px solid #ddd; /* Cień pod komórkami */
+}
+
+/* Zmiana koloru tekstu w wierszu po najechaniu */
+td:hover {
+    color: #f9c535; /* Zmiana koloru tekstu na niebieski */
+}
+
+
+/* Ukrycie domyślnego przycisku radio */
+#display_form input[type="radio"] {
+    display: none; /* Ukrywa domyślny przycisk radio */
+}
+
+/* Stylowanie etykiety dla przycisku radio */
+#display_form label {
+    position: relative; /* Ustawienie pozycji względnej */
+    padding-left: 5px; /* Przesunięcie etykiety w lewo, by zrobić miejsce dla niestandardowego przycisku */
+    cursor: pointer; /* Ustawienie kursora na rękę */
+    font-size: 14px; /* Zmniejszenie rozmiaru czcionki */
+    color: #e7e7e7; /* Jasnoszary kolor tekstu */
+    display: inline-block; /* Ustawienie etykiety obok siebie */
+    line-height: 25px; /* Wyrównanie tekstu w pionie */
+    margin-right: 15px; /* Mniejszy odstęp między opcjami */
+    bottom: 0%;
+}
+
+/* Opcje po najechaniu na etykietę */
+#display_form label:hover {
+    color: #f9c535; /* Zmiana koloru tekstu na żółty przy najechaniu */
+}
+
+
+/* Styl dla przycisków radio - dla zaznaczonego */
+#display_form input[type="radio"]:checked + label::before {
+    content: '\2022'; /* Symbol kropki */
+    font-size: 50px; /* Rozmiar kropki */
+    color: #f9c535; /* Kolor dla zaznaczonego przycisku (żółty) */
+    position: absolute;
+    left: 50px; /* Ustawienie kropki na początku */
+    top: 10%; /* Wyśrodkowanie kropki w pionie */
+    transform: translateY(-50%); /* Dokładne wyśrodkowanie w pionie */
+}
+
+/* Styl dla przycisków radio - dla niezaznaczonego */
+#display_form input[type="radio"] + label::before {
+    content: '\2022'; /* Symbol kropki */
+    font-size: 50px; /* Rozmiar kropki */
+    color: #262626; /* Ciemnoszary kolor dla niezaznaczonego */
+    position: absolute;
+    left: 50px; /* Ustawienie kropki na początku */
+    top: 10%; /* Wyśrodkowanie kropki w pionie */
+    transform: translateY(-50%); /* Dokładne wyśrodkowanie w pionie */
+}
+
+/* Stylowanie kontenera dla każdego przycisku radio */
+.radio-container {
+
+}
+
+
+
+
+
+
+
+
+
+.aside {
+        padding: 0px;
+}
+/* Kontener z kafelkami */
+.tile {
+
+    display: flex; /* Użycie Flexboxa do układu poziomego */
+    justify-content: space-between; /* Równomierne rozmieszczenie przestrzeni pomiędzy kafelkami */
+    gap: 50px; /* Odstęp między kafelkami */
+    padding: 20px; /* Padding na bokach, by zapewnić przestrzeń */
+    padding-top: 0px;
+    justify-content: center; /* Wyśrodkowanie zawartości */
+}
+
+.tile-button {
+
+    font-family: "Michroma", sans-serif;/* Czcionka przycisków */
+    position: relative; /* Pozycjonowanie względne */
+    width: 200px; /* Szerokość przycisku */
+    padding: 20px; /* Wewnętrzne odstępy */
+    text-align: center; /* Wyrównanie tekstu do środka */
+    font-size: 20 px; /* Rozmiar czcionki */
+    font-weight: bold; /* Pogrubienie tekstu */
+    color: white;
+    background-color: rgba(38, 38, 38, 0.5); /* Półprzezroczyste szare tło */
+    backdrop-filter: blur(10px); /* Dodaje rozmycie o wartości 5px */
+    border: rgba(249, 197, 53, 0.8) solid 0.5px; /* Obramowanie w kolorze jasnoszarym */
+    border-radius: 10px; /* Zaokrąglenie rogów */
+
+}
+
+/* Styl przycisku po najechaniu */
+.tile-button:hover {
+    background-color: rgba(249, 197, 53, 0.8);
+    color: #262626;
+    font-weight: bold;
+}
+
+
+
+/* Styl stopki */
+footer {
+
+    height: 40px; /* Wysokość stopki */
+    float: inline-end;
+    padding-right: 10px; /* Odstęp z prawej */
+    }
+
+/* Styl dla modali */
+.modal {
+    font-size: 12px; /* Rozmiar czcionki */
+    display: none; /* Ukrycie modala */
+    position: fixed; /* Ustawienie w stałym miejscu */
+    z-index: 1; /* Warstwa ponad innymi elementami */
+    margin: auto; /* Wyśrodkowanie */
+    background-color: rgba(38, 38, 38, 0.8); /* Kolor tła */
+    padding: 10px; /* Padding wokół */
+    top: 40%; /* Wysokość modalnego okna */
+    left: 50%; /* Pozycja pozioma */
+    border: 1px solid #f9c535; /* Obramowanie */
+    font-family: "Michroma", sans-serif;
+    color: #f9c535;
+    border-radius: 10px; /* Zaokrąglenie rogów */
+    width: 600px; /* Szerokość */
+    max-width: 80%; /* Maksymalna szerokość */
+    transform: translate(-50%, -50%); /* Wyśrodkowanie */
+    animation-name: modal---open; /* Animacja otwierania */
+    animation-duration: 200ms; /* Czas animacji */
+    animation-fill-mode: forwards; /* Zachowanie stanu po animacji */
+}
+
+/* Styl formularza w modalach */
+.management_form {
+    display: flex; /* Flexbox */
+    align-items: end; /* Wyrównanie w dół */
+    justify-content: space-evenly; /* Równomierne rozmieszczenie */
+}
+
+/* Styl zamykania modali */
+.modal--close {
+    animation-name: modal---close; /* Animacja zamykania */
+}
+
+/* Styl modali informacyjnych */
+.modal.info {
+    width: 300px; /* Szerokość 300px */
+}
+
+/* Styl treści w modalach informacyjnych */
+.body.info {
+    margin-left: 10px; /* Odstęp po lewej */
+}
+
+/* Styl nagłówka w modalu */
+.header {
+    justify-content: space-between; /* Rozmieszczenie na skrajnych częściach */
+    display: flex; /* Flexbox */
+    height: fit-content; /* Wysokość dopasowana do zawartości */
+    align-items: center; /* Wyrównanie do środka */
+    padding-bottom: 5px; /* Padding na dole */
+}
+
+/* Styl tytułu w nagłówku modala */
+.header .title {
+    font-size: 30px; /* Duży rozmiar czcionki */
+    font-weight: bold; /* Pogrubienie czcionki */
+    padding-left: 20px; /* Odstęp z lewej strony */
+}
+
+/* Styl przycisku zamknięcia */
+.header .close {
+    cursor: pointer; /* Kursor ręki */
+    border: none; /* Brak obramowania */
+    outline: none; /* Brak obramowania po kliknięciu */
+    background: none; /* Brak tła */
+    font-size: 30px; /* Duży rozmiar czcionki */
+    font-weight: bold; /* Pogrubienie czcionki */
+    color: lightgray; /* Jasnoszary kolor */
+    width: auto; /* Automatyczna szerokość */
+    padding-top: 0; /* Brak paddingu na górze */
+}
+
+/* Styl stopki w modalu */
+.footer {
+    display: flex; /* Flexbox */
+    justify-content: space-between; /* Rozmieszczenie przycisków po obu stronach */
+    vertical-align: bottom; /* Wyrównanie do dołu */
+    align-items: end; /* Wyrównanie przycisków na dole */
+    padding-top: 15px; /* Padding na górze */
+    width: auto; /* Automatyczna szerokość */
+}
+
+/* Styl dla stopki w modalu informacyjnym */
+.footer.info {
+    justify-content: end; /* Wyrównanie przycisków na prawo */
+}
+
+/* Styl etykiet w stopce */
+.footer label {
+    padding: 1px; /* Padding wokół */
+}
+
+/* Styl inputów w stopce */
+.footer input {
+    max-width: 150px; /* Maksymalna szerokość */
+}
+
+/* Styl spanów w stopce */
+.footer span {
+    display: contents; /* Brak dodatkowych elementów blokowych */
+}
+
+/* Styl formularza w modalu */
+.modal .data_form {
+    align-items: center; /* Wyrównanie w pionie */
+    justify-content: space-between; /* Rozstawienie równomierne */
+    display: flex; /* Flexbox */
+
+}
+
+/* Styl dla formularza w modalu */
+.form_block {
+    float: left; /* Wyrównanie do lewej */
+    padding-right: 50px; /* Odstęp po prawej stronie */
+    background-color: rgba(38, 38, 38, 0.8); /* Kolor tła */
+
+}
+#conc_class{
+    background-color: rgba(38, 38, 38, 0.8); /* Kolor tła */
+    color: #ffffff;
+    font-family: "Michroma", sans-serif;
+    font-size: 12px;
+}
+#sort_container option {
+    background-color: rgba(38, 38, 38, 0.8); /* Kolor tła kontenera */
+    color: #ffffff; /* Kolor tekstu w dropdownie */
+    border: none; /* Opcjonalnie, jeśli chcesz usunąć obramowanie */
+    font-family: "Michroma", sans-serif;
+    font-size: 12px;
+}
+#sort_container option:hover {
+    background-color: #f9c535; /* Kolor tła przy hover */
+    color: #262626; /* Kolor tekstu przy hover */
+  }
+
+
+#vehicle_type {
+    background-color: rgba(38, 38, 38, 0.8); /* Kolor tła kontenera */
+    color: #ffffff; /* Kolor tekstu w dropdownie */
+    border: none; /* Opcjonalnie, jeśli chcesz usunąć obramowanie */
+    font-family: "Michroma", sans-serif;
+    font-size: 12px;
+  }
+
+  #vehicle_type option {
+    background-color: rgba(38, 38, 38, 0.8); /* Kolor tła dla opcji */
+    color: #ffffff; /* Kolor tekstu dla opcji */
+  }
+
+  /* Kolor zmienia się przy najechaniu na opcję */
+  #vehicle_type option:hover {
+    background-color: #f9c535; /* Kolor tła przy hover */
+    color: #262626; /* Kolor tekstu przy hover */
+  }
+
+
+
+/* Styl etykiet w formularzu */
+label {
+    display: grid; /* Ustawienie w siatkę */
+    width: 250px; /* Szerokość etykiety */
+    padding: 5px; /* Padding wokół */
+}
+
+/* Styl etykiet w formularzu zarządzania */
+.management_form label {
+    display: block; /* Ustawienie w bloku */
+    width: auto; /* Szerokość na podstawie zawartości */
+    padding: 5px; /* Padding wokół */
+}
+
+/* Styl invalid inputów (błędnych) */
+input:invalid {
+
+}
+
+
+
+/* Styl dla pól liczbowych w formularzach */
+#part_amount, #duration{
+    width: 50px; /* Szerokość pól */
+}
+
+/* Styl dla pola czasu w formularzach */
+#part_time{
+    width: 60px; /* Szerokość pola */
+
+}
+input{
+    background-color: rgba(38, 38, 38, 0.8); /* Kolor tła */
+    border-bottom: 1px solid #f9c535; /* Cień pod komórkami */
+    border-top:none ;
+    border-left: none;
+    border-right: none;
+    font-family: "Michroma", sans-serif;
+    font-size: 12px;
+    color: #ffffff;
+}
+/* Styl dla iframe (np. do wydruków) */
+iframe {
+    visibility: hidden; /* Ukrycie iframe */
+    position: fixed; /* Ustawienie w stałym miejscu */
+}
+
+/* Styl nakładki (overlay) dla aktywnych modali */
+#overlay {
+    position: fixed; /* Ustawienie na stałe */
+    transition: 200ms ease-in-out; /* Płynne przejście */
+    opacity: 0; /* Domyślnie niewidoczna */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczysty czarny kolor */
+    pointer-events: none; /* Brak interakcji z tłem */
+}
+
+/* Aktywacja nakładki */
+#overlay.active {
+    opacity: 1; /* W pełni widoczna */
+    pointer-events: all; /* Aktywacja interakcji */
+}
+
+/* Animacja otwierania modala */
+@keyframes modal---open {
+    from {
+        transform: translate(-50%, -50%) scale(0.5) /* Początkowy rozmiar */
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1) /* Końcowy rozmiar */
+    }
+}
+
+/* Animacja zamykania modala */
+@keyframes modal---close {
+    from {
+        transform: translate(-50%, -50%) scale(1) /* Początkowy rozmiar */
+    }
+    to {
+        transform: translate(-50%, -50%) scale(0.5) /* Końcowy rozmiar */
+    }
+}
