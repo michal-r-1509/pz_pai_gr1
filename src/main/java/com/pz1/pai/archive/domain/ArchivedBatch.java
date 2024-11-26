@@ -1,6 +1,6 @@
 package com.pz1.pai.archive.domain;
 
-import com.pz1.pai.shared.IdEntity;
+import com.pz1.pai.shared.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -17,7 +17,7 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @Entity
 @Table(name = "archived_batches")
-public class ArchivedBatch extends IdEntity {
+public class ArchivedBatch extends BaseEntity {
 
     private String dnNo;
     private LocalDate date;
@@ -27,7 +27,7 @@ public class ArchivedBatch extends IdEntity {
     private String clientAddress;
     private String clientPostCode;
     private String clientCity;
-    private String clientTxpIN;
+    private String clientNip;
     private String vehicleType;
     private String vehicleName;
     private String vehicleRegNo;

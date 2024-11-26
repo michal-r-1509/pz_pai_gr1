@@ -2,10 +2,11 @@ package com.pz1.pai.archive.service;
 
 import com.pz1.pai.archive.domain.ArchivedBatch;
 import com.pz1.pai.archive.repository.ArchiveRepository;
-import com.pz1.pai.exceptions.DataNotFoundException;
-import com.pz1.pai.exceptions.IllegalActionException;
-import com.pz1.pai.orders.domain.Order;
-import com.pz1.pai.orders.repository.OrderRepository;
+import com.pz1.pai.archive.tool.ArchiveMapper;
+import com.pz1.pai.exceptions.ElementNotFoundException;
+import com.pz1.pai.exceptions.IllegalOperationException;
+import com.pz1.pai.order.domain.Order;
+import com.pz1.pai.order.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Sort;
@@ -20,27 +21,27 @@ import java.util.stream.Collectors;
 @Service
 public class ArchiveService {
 
-    private final ArchiveRepository archiveRepository;
+    private final ArchiveRepository repository;
+    private final ArchiveMapper mapper;
     private final OrderRepository orderRepository;
-    private final ArchiveMapper archiveMapper;
 
     public void saveToArchive(final Long orderId) {
         Order order = orderRepository.findById(orderId)
-                .orElseThrow(() -> new DataNotFoundException("order", orderId));
+                .orElseThrow(() -> new ElementNotFoundException("order", orderId));
         if (order.isDone()) {
             List<ArchivedBatch> archivedBatches = order.getBatches().stream()
-                    .map(archiveMapper::toArchive)
+                    .map(mapper::toArchive)
                     .collect(Collectors.toList());
-            archiveRepository.saveAll(archivedBatches);
+            repository.saveAll(archivedBatches);
             log.info("batches for order with id {} archived", orderId);
         } else {
-            throw new IllegalActionException("not all batches are completed");
+            throw new IllegalOperationException(orderId);
         }
     }
 
     public List<ArchivedBatch> readAllArchivedBatches() {
         log.info("reading all archived batches with sorting");
-        return archiveRepository.findAll().stream()
+        return repository.findAll().stream()
                 .sorted(Comparator.comparing(ArchivedBatch::getTime))
                 .sorted(Comparator.comparing(ArchivedBatch::getDate))
                 .collect(Collectors.toList());
@@ -48,6 +49,6 @@ public class ArchiveService {
 
     public List<ArchivedBatch> readAllArchivedBatches(final Sort sort) {
         log.info("reading all archived batches");
-        return archiveRepository.findAll(sort);
+        return repository.findAll(sort);
     }
 }
