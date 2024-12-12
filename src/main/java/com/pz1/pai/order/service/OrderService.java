@@ -1,6 +1,5 @@
 package com.pz1.pai.order.service;
 
-import com.pz1.pai.order.domain.Order;
 import com.pz1.pai.batch.dto.BatchRequestDTO;
 import com.pz1.pai.batch.dto.BatchResponseDTO;
 import com.pz1.pai.order.dto.OrderRequestDTO;
