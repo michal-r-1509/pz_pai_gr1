@@ -47,13 +47,6 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public OrderResponseDTO saveOrder(final Order toSave) {
-        repository.save(toSave);
-        log.info("created order with id: {}", toSave.getId());
-        return mapper.toResponse(toSave);
-    }
-
-    @Override
     public List<BatchResponseDTO> saveOrUpdateBatches(final Long id, final List<BatchRequestDTO> toSave) {
         Order order = repository.findById(id)
                 .orElseThrow(() -> new ElementNotFoundException("order", id));
@@ -108,7 +101,7 @@ public class OrderServiceImpl implements OrderService {
         return repository.findAll().stream()
                 .sorted(Comparator.comparing(Order::getTime))
                 .sorted(Comparator.comparing(Order::getDate))
-                .map(order -> mapper.toResponse(order))
+                .map(mapper::toResponse)
                 .collect(Collectors.toList());
     }
 
@@ -123,7 +116,7 @@ public class OrderServiceImpl implements OrderService {
     public List<OrderResponseDTO> getAllOrders(final Sort sort) {
         log.info("reading all orders with sorting");
         return repository.findAll(sort).stream()
-                .map(order -> mapper.toResponse(order))
+                .map(mapper::toResponse)
                 .collect(Collectors.toList());
     }
 

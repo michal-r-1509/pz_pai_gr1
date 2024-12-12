@@ -15,7 +15,6 @@ import jakarta.validation.constraints.Size;
 @Getter
 @Setter
 public class VehicleRequestDTO {
-//    private int id;
     @NotBlank
     @Size(min = 1, max = 50)
     private String name;

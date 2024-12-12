@@ -8,12 +8,12 @@ VALUES (1, 'Mercedes Actros', 'MIXER', 'WA12345', 8.0, 0.0),
 
 INSERT INTO clients (id, name, street_and_no, post_code, city, taxpayer_ident_no, type)
 VALUES
-    (1, 'John Doe', '123 Elm St', '12345', 'Springfield', 1234567890, 'INDIVIDUAL'),
-    (2, 'Acme Corp', '456 Oak Ave', '54321', 'Metropolis', 987654321, 'BUSINESS'),
-    (3, 'Jane Smith', '789 Pine Dr', '67890', 'Smalltown', 456789123, 'INDIVIDUAL'),
-    (4, 'Global Enterprises', '101 Maple Rd', '11223', 'Big City', 321654987, 'BUSINESS'),
-    (5, 'Alpha Solutions', '202 Birch Ln', '33445', 'Riverdale', 135792468, 'BUSINESS'),
-    (6, 'Beta Innovations', '303 Cedar Blvd', '55667', 'Lakeside', 246813579, 'BUSINESS');
+    (1, 'John Doe', '123 Elm St', '12345', 'Springfield', 0, 'INDIVIDUAL'),
+    (2, 'Acme Corp', '456 Oak Ave', '54321', 'Metropolis', 9876543211, 'BUSINESS'),
+    (3, 'Jane Smith', '789 Pine Dr', '67890', 'Smalltown', 0, 'INDIVIDUAL'),
+    (4, 'Global Enterprises', '101 Maple Rd', '11223', 'Big City', 3216549872, 'BUSINESS'),
+    (5, 'Alpha Solutions', '202 Birch Ln', '33445', 'Riverdale', 1357924683, 'BUSINESS'),
+    (6, 'Beta Innovations', '303 Cedar Blvd', '55667', 'Lakeside', 2468135794, 'BUSINESS');
 
 INSERT INTO orders (id, date, time, amount, concrete_class, site_address, description, pump, done, client_id)
 VALUES (1, '2024-10-01', '08:30:00', 12.00, 'C30/37', '123 Construction Ave, Warsaw', 'Delivery for foundation', true, false, 1),
@@ -38,5 +38,3 @@ VALUES (1, 5.0, true, 1, 1),
        (4, 2.5, true,  4, 4),
        (5, 6.0, false, 5, 5),
        (6, 3.2, true,  6, 6);
-
-

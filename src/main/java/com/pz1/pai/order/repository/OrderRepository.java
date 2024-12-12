@@ -9,10 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface OrderRepository extends JpaRepository<Order, Integer> {
+public interface OrderRepository extends JpaRepository<Order, Long> {
 
-    Optional<Order> findById(Long id);
-    boolean existsById(Long id);
-    void deleteById(Long id);
     boolean existsOrderByClient_Id(Long id);
 }

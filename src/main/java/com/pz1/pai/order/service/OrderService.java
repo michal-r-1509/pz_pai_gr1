@@ -11,7 +11,6 @@ import java.util.List;
 
 public interface OrderService {
     OrderResponseDTO saveOrder(final OrderRequestDTO toSave);
-    OrderResponseDTO saveOrder(final Order toSave);
     List<BatchResponseDTO> saveOrUpdateBatches(final Long id, final List<BatchRequestDTO> toSave);
     OrderResponseDTO updateOrder(final Long id, final OrderRequestDTO toSave);
     void changeOrderStatus(boolean status, final Long id);

@@ -9,11 +9,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface VehicleRepository extends JpaRepository<Vehicle, Integer> {
+public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
 
-    Optional<Vehicle> findById(Long id);
-    boolean existsById(Long id);
-    void deleteById(Long id);
     boolean existsByRegNo(String regNo);
     boolean existsByRegNoAndIdIsNot(String regNo, Long id);
 

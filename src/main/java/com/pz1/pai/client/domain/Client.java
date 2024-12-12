@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.*;
@@ -30,6 +31,7 @@ public class Client extends BaseEntity {
     private String postCode;
     @Size(max = 20)
     private String city;
+    @Max(value=9999999999L)
     private long taxpayerIdentNo;
 
     @JsonIgnore
