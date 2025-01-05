@@ -25,7 +25,7 @@ body {
 button {
     font-family: "Michroma", sans-serif;/* Czcionka przycisków */
     position: relative; /* Pozycjonowanie względne */
-    width: 140px; /* Szerokość przycisku */
+    width: 150px; /* Szerokość przycisku */
     padding: 10px; /* Wewnętrzne odstępy */
     margin: 5px; /* Zewnętrzne odstępy */
     text-align: center; /* Wyrównanie tekstu do środka */
@@ -33,7 +33,7 @@ button {
     font-weight: bold; /* Pogrubienie tekstu */
     color: white;
     background-color: rgba(38, 38, 38, 0.5); /* Półprzezroczyste szare tło */
-    backdrop-filter: blur(10px); /* Dodaje rozmycie o wartości 5px */
+    backdrop-filter: blur(20px);
     border: rgba(249, 197, 53, 0.8) solid 0.5px; /* Obramowanie w kolorze jasnoszarym */
     border-radius: 10px; /* Zaokrąglenie rogów */
     font-variant-caps: all-petite-caps; /* Małe litery z dużymi początkowymi */
@@ -51,12 +51,13 @@ button:hover {
 
 /* Styl przycisków w tabelach */
 td button {
-    width: 60px; /* Szerokość przycisku */
+    width: 100px; /* Szerokość przycisku */
     padding: 2px; /* Wewnętrzne odstępy */
     margin: 3px; /* Zewnętrzne odstępy */
     font-size: 10px; /* Mały rozmiar czcionki */
     border: lightgray solid 1px; /* Obramowanie przycisku */
     border-radius: 8px; /* Zaokrąglenie rogów */
+    font-family: "Kanit", serif;
 }
 
 /* Styl przycisku w tabeli, gdy jest wyłączony */
@@ -132,18 +133,19 @@ article {
     align-items: center; /* Wyrównanie w pionie */
     width: 100%; /* Szerokość 100% */
     justify-content: center; /* Wyśrodkowanie zawartości */
-    font-family: "Michroma", sans-serif;
+
 }
 
 /* Stylowanie tabel */
 table {
+    border: rgba(249, 197, 53, 0.8) solid 0.5px;
     display: block; /* Ustawienie tabeli na blok */
     margin-left: auto; /* Wyśrodkowanie */
     margin-right: auto; /* Wyśrodkowanie */
     width: auto; /* Szerokość auto */
     border-collapse: collapse; /* Łączenie krawędzi */
     overflow-y: auto; /* Pionowe przewijanie */
-    max-height: 400px; /* Maksymalna wysokość tabeli */
+    max-height: 380px; /* Maksymalna wysokość tabeli */
     border-collapse: collapse; /* Usunięcie podwójnych krawędzi */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Cień wokół tabeli */
     border-radius: 5px; /* Zaokrąglenie rogów tabeli */
@@ -153,6 +155,7 @@ table {
 
 /* Styl dla mniejszych tabel */
 .smaller_tables {
+
     display: grid; /* Użycie siatki */
     padding: 10px; /* Padding wokół */
     height: 150px; /* Wysokość */
@@ -199,6 +202,7 @@ tr:hover {
 
 /* Styl komórek tabeli */
 td {
+    font-family: "Kanit", serif;
     text-align: center; /* Wyrównanie tekstu do środka */
     padding: 12px 15px; /* Większy padding wewnątrz komórek */
     font-size: 13px; /* Większy rozmiar czcionki */
@@ -217,17 +221,31 @@ td:hover {
     display: none; /* Ukrywa domyślny przycisk radio */
 }
 
-/* Stylowanie etykiety dla przycisku radio */
+#display_form {
+    position: absolute;
+    bottom: 70px;
+    left: 50%; /* Przesunięcie kontenera na 50% szerokości ekranu */
+    transform: translateX(-50%); /* Przesunięcie o połowę szerokości kontenera, aby wyśrodkować */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+    width: auto; /* Jeśli chcesz, żeby szerokość była dostosowana do zawartości */
+}
+
+
 #display_form label {
+    font-family: "Kanit", serif;
     position: relative; /* Ustawienie pozycji względnej */
     padding-left: 5px; /* Przesunięcie etykiety w lewo, by zrobić miejsce dla niestandardowego przycisku */
     cursor: pointer; /* Ustawienie kursora na rękę */
     font-size: 14px; /* Zmniejszenie rozmiaru czcionki */
     color: #e7e7e7; /* Jasnoszary kolor tekstu */
-    display: inline-block; /* Ustawienie etykiety obok siebie */
+    display: flex; /* Ustawienie w poziomie */
+    align-items: center; /* Wyśrodkowanie tekstu względem ikony */
     line-height: 25px; /* Wyrównanie tekstu w pionie */
-    margin-right: 15px; /* Mniejszy odstęp między opcjami */
-    bottom: 0%;
+    margin-right: 0; /* Usunięcie dodatkowego marginesu */
 }
 
 /* Opcje po najechaniu na etykietę */
@@ -235,28 +253,24 @@ td:hover {
     color: #f9c535; /* Zmiana koloru tekstu na żółty przy najechaniu */
 }
 
-
 /* Styl dla przycisków radio - dla zaznaczonego */
 #display_form input[type="radio"]:checked + label::before {
     content: '\2022'; /* Symbol kropki */
-    font-size: 50px; /* Rozmiar kropki */
+    font-size: 20px; /* Rozmiar kropki */
     color: #f9c535; /* Kolor dla zaznaczonego przycisku (żółty) */
-    position: absolute;
-    left: 50px; /* Ustawienie kropki na początku */
-    top: 10%; /* Wyśrodkowanie kropki w pionie */
-    transform: translateY(-50%); /* Dokładne wyśrodkowanie w pionie */
+    position: relative; /* Ustawienie względne */
+    margin-right: 5px; /* Odstęp między kropką a tekstem */
 }
 
 /* Styl dla przycisków radio - dla niezaznaczonego */
 #display_form input[type="radio"] + label::before {
     content: '\2022'; /* Symbol kropki */
-    font-size: 50px; /* Rozmiar kropki */
+    font-size: 20px; /* Rozmiar kropki */
     color: #262626; /* Ciemnoszary kolor dla niezaznaczonego */
-    position: absolute;
-    left: 50px; /* Ustawienie kropki na początku */
-    top: 10%; /* Wyśrodkowanie kropki w pionie */
-    transform: translateY(-50%); /* Dokładne wyśrodkowanie w pionie */
+    position: relative; /* Ustawienie względne */
+    margin-right: 5px; /* Odstęp między kropką a tekstem */
 }
+
 
 /* Stylowanie kontenera dla każdego przycisku radio */
 .radio-container {
@@ -331,7 +345,6 @@ footer {
     top: 40%; /* Wysokość modalnego okna */
     left: 50%; /* Pozycja pozioma */
     border: 1px solid #f9c535; /* Obramowanie */
-    font-family: "Michroma", sans-serif;
     color: #f9c535;
     border-radius: 10px; /* Zaokrąglenie rogów */
     width: 600px; /* Szerokość */
@@ -445,17 +458,32 @@ footer {
     font-size: 12px;
 }
 #sort_container option {
-    background-color: rgba(38, 38, 38, 0.8); /* Kolor tła kontenera */
-    color: #ffffff; /* Kolor tekstu w dropdownie */
+    background-color: rgba(38, 38, 38, 0.8); /* Kolor tła */
+    color: #f9c535;
     border: none; /* Opcjonalnie, jeśli chcesz usunąć obramowanie */
     font-family: "Michroma", sans-serif;
     font-size: 12px;
 }
 #sort_container option:hover {
-    background-color: #f9c535; /* Kolor tła przy hover */
-    color: #262626; /* Kolor tekstu przy hover */
+   background-color: #f9c535; /* Kolor tła */
+    color: #f9c535; /* Kolor tekstu przy hover */
   }
+  #sort_container  {
+      font-family: "Michroma", sans-serif;
+      background-color: rgba(38, 38, 38, 0.8); /* Kolor tła */
+      color: #262626;
+      float: right;
+      position: absolute;
+      bottom: 70px;
+      right: 83px;
+    }
+#sort_confirm{
+       float: right;
+       position: absolute; /* Ustawienie pozycji absolutnej */
+       bottom: 10px; /* Odstęp 20px od dołu */
+       right: 70px; /* Odstęp 20px od prawej */
 
+}
 
 #vehicle_type {
     background-color: rgba(38, 38, 38, 0.8); /* Kolor tła kontenera */
@@ -480,6 +508,7 @@ footer {
 
 /* Styl etykiet w formularzu */
 label {
+
     display: grid; /* Ustawienie w siatkę */
     width: 250px; /* Szerokość etykiety */
     padding: 5px; /* Padding wokół */
